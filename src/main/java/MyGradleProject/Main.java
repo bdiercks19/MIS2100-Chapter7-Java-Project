@@ -23,6 +23,9 @@ public class Main {
 	private JTextField debox;
 	private JTextField numbox;
 	private JTextField rebox;
+	private JTextField num1box;
+	private JTextField num2box;
+	private JTextField valbox;
 
 	/**
 	 * Launch the application.
@@ -45,6 +48,7 @@ public class Main {
 	 */
 	public Main() {
 		initialize();
+		
 	}
 
 	/**
@@ -57,11 +61,13 @@ public class Main {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel topnumber = new JLabel("Numerator");
-		topnumber.setBounds(27, 0, 97, 32);
+		topnumber.setHorizontalAlignment(SwingConstants.CENTER);
+		topnumber.setBounds(7, 10, 110, 21);
 		frame.getContentPane().add(topnumber);
 		
 		JLabel bottomnumber = new JLabel("Denominator");
-		bottomnumber.setBounds(25, 45, 103, 35);
+		bottomnumber.setHorizontalAlignment(SwingConstants.CENTER);
+		bottomnumber.setBounds(14, 45, 103, 35);
 		frame.getContentPane().add(bottomnumber);
 		
 		debox = new JTextField();
@@ -91,6 +97,44 @@ public class Main {
 		Calculate.setBounds(10, 105, 110, 21);
 		frame.getContentPane().add(Calculate);
 		
+		JLabel num1 = new JLabel("Number 1");
+		num1.setHorizontalAlignment(SwingConstants.CENTER);
+		num1.setBounds(5, 140, 110, 13);
+		frame.getContentPane().add(num1);
+		
+		JLabel num2 = new JLabel("Number 2");
+		num2.setHorizontalAlignment(SwingConstants.CENTER);
+		num2.setBounds(5, 180, 115, 13);
+		frame.getContentPane().add(num2);
+		
+		num1box = new JTextField();
+		num1box.setHorizontalAlignment(SwingConstants.CENTER);
+		num1box.setBounds(10, 160, 107, 19);
+		frame.getContentPane().add(num1box);
+		num1box.setColumns(10);
+		
+		num2box = new JTextField();
+		num2box.setHorizontalAlignment(SwingConstants.CENTER);
+		num2box.setBounds(10, 200, 107, 19);
+		frame.getContentPane().add(num2box);
+		num2box.setColumns(10);
+		
+		JLabel valuez = new JLabel("Result");
+		valuez.setHorizontalAlignment(SwingConstants.CENTER);
+		valuez.setBounds(175, 165, 45, 13);
+		frame.getContentPane().add(valuez);
+		
+		valbox = new JTextField();
+		valbox.setHorizontalAlignment(SwingConstants.CENTER);
+		valbox.setBounds(150, 185, 110, 19);
+		frame.getContentPane().add(valbox);
+		valbox.setColumns(10);
+		
+		JButton valbutton = new JButton("Calculate");
+
+		valbutton.setBounds(7, 229, 110, 21);
+		frame.getContentPane().add(valbutton);
+		
 		Calculate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -108,7 +152,21 @@ public class Main {
 				} 
 			}
 		});
+		
+		valbutton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			double number1 = Double.parseDouble(num1box.getText());
+			double number2 = Double.parseDouble(num2box.getText());
 			
+			SimpleMath result2 = new SimpleMath();
+			double output = result2.multiply(number1, number2);
+			valbox.setText("" + output);
+			
+			}
+		});
+		
 	}
 }
 //
