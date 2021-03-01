@@ -13,6 +13,13 @@ public class SimpleMath {
 		double value = numerator / denominator;
 		return value;
 	}
+	
+	public double multiply(double number1, double number2) {
+		
+		double value1 = number1 * number2;
+		return value1;
+		
+	}
 
 }
 //
